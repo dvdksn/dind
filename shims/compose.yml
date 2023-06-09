@@ -1,0 +1,15 @@
+services:
+  shims:
+    build:
+      context: .
+      tags:
+        - "davidkarlsson416/dind:shims"
+      target: runtime
+    privileged: true
+    volumes:
+      - shim_var:/var
+    security_opt:
+      - seccomp=unconfined
+
+volumes:
+  shim_var:
